@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:410001953158:android:0de92ba4373dc233",
         "android_client_info": {
-          "package_name": "anuj.wifidirect"
+          "package_name": "example.wifidirect"
         }
       },
       "oauth_client": [

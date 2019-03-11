@@ -1,4 +1,4 @@
-package anuj.wifidirect;
+package example.wifidirect;
 
 import org.junit.Test;
 

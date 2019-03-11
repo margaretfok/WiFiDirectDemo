@@ -76,24 +76,18 @@ public class WiFiDirectActivity extends AppCompatActivity implements ChannelList
         setContentView(R.layout.main);
         initViews();
 
-        checkStoragePermission();
-        checkLocationPermission();
+        checkPermissions();
     }
 
-    /*
-      Ask permissions for Filestorage if device api > 23
-       */
-    //  @TargetApi(Build.VERSION_CODES.M)
-    private void checkStoragePermission() {
+    private void checkPermissions() {
         boolean isExternalStorage = PermissionsAndroid.getInstance().checkWriteExternalStoragePermission(this);
-        if (!isExternalStorage) {
-            PermissionsAndroid.getInstance().requestForWriteExternalStoragePermission(this);
-        }
-    }
-
-    private void checkLocationPermission() {
         boolean isLocation = PermissionsAndroid.getInstance().checkLocationPermission(this);
-        if (!isLocation) {
+
+        if (!isExternalStorage && !isLocation) {
+            PermissionsAndroid.getInstance().requestForStorageAndLocationPermission(this);
+        } else if (!isExternalStorage) {
+            PermissionsAndroid.getInstance().requestForWriteExternalStoragePermission(this);
+        } else if (!isLocation) {
             PermissionsAndroid.getInstance().requestForLocationPermission(this);
         }
     }

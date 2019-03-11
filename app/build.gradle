@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25
     defaultConfig {
-        applicationId "anuj.wifidirect"
+        applicationId "example.wifidirect"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 2

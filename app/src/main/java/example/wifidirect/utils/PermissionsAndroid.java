@@ -153,6 +153,23 @@ public class PermissionsAndroid {
         }
     }
 
+    // Request storage and location permission
+    public static final int PERMISSIONS_MULTIPLE_REQUEST = 123;
+
+    public void requestForStorageAndLocationPermission(Activity activity) {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.ACCESS_COARSE_LOCATION) &&
+                ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            ActivityCompat.requestPermissions(activity,
+                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    PERMISSIONS_MULTIPLE_REQUEST);
+            Toast.makeText(activity, "Allow Location and Write External Storage Permission to use this functionality.", Toast.LENGTH_SHORT).show();
+        } else {
+            ActivityCompat.requestPermissions(activity,
+                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    PERMISSIONS_MULTIPLE_REQUEST);
+        }
+    }
+
     // function to return true or false based on the permission result
     private boolean boolValue(int value) {
         if (value == PackageManager.PERMISSION_GRANTED)
