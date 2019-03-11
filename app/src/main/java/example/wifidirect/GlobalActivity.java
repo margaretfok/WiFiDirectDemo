@@ -12,7 +12,7 @@
  *                            documentation and/or other materials provided with the distribution.
  */
 
-package anuj.wifidirect;
+package example.wifidirect;
 
 import android.app.Application;
 import android.content.Context;

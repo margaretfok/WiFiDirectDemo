@@ -1,4 +1,4 @@
-package anuj.wifidirect.wifi;
+package example.wifidirect.wifi;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,8 +14,8 @@ import android.content.Intent;
 import android.os.Handler;
 import android.util.Log;
 
-import anuj.wifidirect.*;
-import anuj.wifidirect.beans.WiFiTransferModal;
+import example.wifidirect.*;
+import example.wifidirect.beans.WiFiTransferModal;
 
 public class WiFiClientIPTransferService extends IntentService{
 

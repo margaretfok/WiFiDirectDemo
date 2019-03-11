@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package anuj.wifidirect.wifi;
+package example.wifidirect.wifi;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -38,13 +38,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
 import java.util.List;
 
-import anuj.wifidirect.R;
-import anuj.wifidirect.utils.PermissionsAndroid;
+import example.wifidirect.R;
+import example.wifidirect.utils.PermissionsAndroid;
 
 /**
  * An activity that uses WiFi Direct APIs to discover and connect with available
@@ -78,11 +75,9 @@ public class WiFiDirectActivity extends AppCompatActivity implements ChannelList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         initViews();
-        AdView mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
 
         checkStoragePermission();
+        checkLocationPermission();
     }
 
     /*
@@ -93,6 +88,13 @@ public class WiFiDirectActivity extends AppCompatActivity implements ChannelList
         boolean isExternalStorage = PermissionsAndroid.getInstance().checkWriteExternalStoragePermission(this);
         if (!isExternalStorage) {
             PermissionsAndroid.getInstance().requestForWriteExternalStoragePermission(this);
+        }
+    }
+
+    private void checkLocationPermission() {
+        boolean isLocation = PermissionsAndroid.getInstance().checkLocationPermission(this);
+        if (!isLocation) {
+            PermissionsAndroid.getInstance().requestForLocationPermission(this);
         }
     }
 
@@ -234,7 +236,7 @@ public class WiFiDirectActivity extends AppCompatActivity implements ChannelList
 
             @Override
             public void onFailure(int reasonCode) {
-                Log.d(TAG, "Disconnect failed. Reason :" + reasonCode);
+                Log.d(TAG, "Disconnect failed. Reason: " + reasonCode);
 
             }
 
@@ -302,9 +304,9 @@ public class WiFiDirectActivity extends AppCompatActivity implements ChannelList
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         List<Fragment> listOfFragments = getSupportFragmentManager().getFragments();
 
-        if(listOfFragments.size()>=1){
+        if (listOfFragments.size() >= 1) {
             for (Fragment fragment : listOfFragments) {
-                if(fragment instanceof DeviceDetailFragment){
+                if (fragment instanceof DeviceDetailFragment) {
                     fragment.onActivityResult(requestCode, resultCode, data);
                 }
             }

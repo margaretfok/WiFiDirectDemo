@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package anuj.wifidirect.wifi;
+package example.wifidirect.wifi;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +36,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import anuj.wifidirect.*;
+import example.wifidirect.*;
 
 /**
  * A ListFragment that displays available peers on discovery and requests the

@@ -1,6 +1,6 @@
 // Copyright 2011 Google Inc. All Rights Reserved.
 
-package anuj.wifidirect.wifi;
+package example.wifidirect.wifi;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -19,7 +19,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
 
-import anuj.wifidirect.beans.WiFiTransferModal;
+import example.wifidirect.beans.WiFiTransferModal;
 
 /**
  * A service that process each file transfer request i.e Intent by opening a

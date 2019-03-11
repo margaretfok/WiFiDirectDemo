@@ -1,4 +1,4 @@
-package anuj.wifidirect.utils;
+package example.wifidirect.utils;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
@@ -30,8 +30,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import anuj.wifidirect.R;
-import anuj.wifidirect.GlobalActivity;
+import example.wifidirect.R;
+import example.wifidirect.GlobalActivity;
 
 import java.io.File;
 import java.io.IOException;

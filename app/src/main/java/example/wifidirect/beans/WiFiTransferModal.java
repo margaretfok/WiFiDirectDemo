@@ -1,4 +1,4 @@
-package anuj.wifidirect.beans;
+package example.wifidirect.beans;
 
 import java.io.Serializable;
 

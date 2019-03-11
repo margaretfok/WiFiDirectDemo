@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package anuj.wifidirect.wifi;
+package example.wifidirect.wifi;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -26,7 +26,7 @@ import android.net.wifi.p2p.WifiP2pManager.Channel;
 import android.net.wifi.p2p.WifiP2pManager.PeerListListener;
 import android.util.Log;
 
-import anuj.wifidirect.*;
+import example.wifidirect.*;
 
 /**
  * A BroadcastReceiver that notifies of important wifi p2p events.

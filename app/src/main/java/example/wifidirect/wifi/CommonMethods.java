@@ -1,4 +1,4 @@
-package anuj.wifidirect.wifi;
+package example.wifidirect.wifi;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -13,7 +13,7 @@ import android.widget.Toast;
 @SuppressLint("NewApi")
 public class CommonMethods {
 	
-	public static String Tag = "AnujWiFiDemo";
+	public static String Tag = "WiFiDemo";
 
 	public static String getPath(Uri uri, Context context) {
 		if (uri == null) {

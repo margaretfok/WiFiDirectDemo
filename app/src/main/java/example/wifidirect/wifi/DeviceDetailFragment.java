@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package anuj.wifidirect.wifi;
+package example.wifidirect.wifi;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -59,14 +59,14 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.List;
 
-import anuj.wifidirect.R;
-import anuj.wifidirect.beans.WiFiTransferModal;
-import anuj.wifidirect.utils.PermissionsAndroid;
-import anuj.wifidirect.utils.SharedPreferencesHandler;
-import anuj.wifidirect.utils.Utils;
-import anuj.wifidirect.wifi.DeviceListFragment.DeviceActionListener;
+import example.wifidirect.R;
+import example.wifidirect.beans.WiFiTransferModal;
+import example.wifidirect.utils.PermissionsAndroid;
+import example.wifidirect.utils.SharedPreferencesHandler;
+import example.wifidirect.utils.Utils;
+import example.wifidirect.wifi.DeviceListFragment.DeviceActionListener;
 
-import static anuj.wifidirect.utils.PermissionsAndroid.WRITE_EXTERNAL_STORAGE_PERMISSION_REQUEST_CODE;
+import static example.wifidirect.utils.PermissionsAndroid.WRITE_EXTERNAL_STORAGE_PERMISSION_REQUEST_CODE;
 
 /**
  * A fragment that manages a particular peer and allows interaction with device
@@ -620,7 +620,7 @@ public class DeviceDetailFragment extends android.support.v4.app.Fragment implem
         intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
         if (Build.VERSION.SDK_INT >= 24) {
             Uri fileURI = FileProvider.getUriForFile(context,
-                    anuj.wifidirect.BuildConfig.APPLICATION_ID + ".provider",
+                    example.wifidirect.BuildConfig.APPLICATION_ID + ".provider",
                     new File(stringUrl));
             uri = fileURI;
         }else{

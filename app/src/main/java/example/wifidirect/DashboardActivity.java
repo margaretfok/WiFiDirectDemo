@@ -1,4 +1,4 @@
-package anuj.wifidirect;
+package example.wifidirect;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;

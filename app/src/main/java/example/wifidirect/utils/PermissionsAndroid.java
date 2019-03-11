@@ -16,7 +16,7 @@
  * /
  */
 
-package anuj.wifidirect.utils;
+package example.wifidirect.utils;
 
 import android.Manifest;
 import android.app.Activity;
@@ -130,7 +130,7 @@ public class PermissionsAndroid {
     public static final int LOCATION_PERMISSION_REQUEST_CODE = 103;
 
     public boolean checkLocationPermission(Activity activity) {
-        return boolValue(ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION));
+        return boolValue(ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_COARSE_LOCATION));
     }
 
     public void requestForLocationPermission(Fragment fragment) {
@@ -144,11 +144,11 @@ public class PermissionsAndroid {
     }
     // Location Permission
     public void requestForLocationPermission(Activity activity) {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.ACCESS_FINE_LOCATION)) {
-            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
+        if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
             Toast.makeText(activity, "Allow Location Permission to use this functionality.", Toast.LENGTH_SHORT).show();
         } else {
-            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
+            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
 
         }
     }

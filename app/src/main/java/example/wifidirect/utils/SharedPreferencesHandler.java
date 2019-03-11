@@ -1,4 +1,4 @@
-package anuj.wifidirect.utils;
+package example.wifidirect.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
