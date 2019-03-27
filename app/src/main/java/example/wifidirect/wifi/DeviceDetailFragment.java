@@ -56,6 +56,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.List;
 
+import example.wifidirect.MainActivity;
 import example.wifidirect.R;
 import example.wifidirect.beans.WiFiTransferModal;
 import example.wifidirect.utils.PermissionsAndroid;
@@ -124,7 +125,7 @@ public class DeviceDetailFragment extends android.support.v4.app.Fragment implem
                     progressDialog = ProgressDialog.show(getActivity(), "Press back to cancel",
                             "Connecting to :" + device.deviceAddress, true, true
                     );
-                    ((DeviceActionListener) getActivity()).connect(config);
+                    ((DeviceActionListener) ((MainActivity) getActivity()).getWifiDirectFragment()).connect(config);
                 } else {
 
                 }
@@ -136,7 +137,7 @@ public class DeviceDetailFragment extends android.support.v4.app.Fragment implem
 
                     @Override
                     public void onClick(View v) {
-                        ((DeviceActionListener) getActivity()).disconnect();
+                        ((DeviceActionListener) ((MainActivity) getActivity()).getWifiDirectFragment()).disconnect();
                     }
                 });
 
@@ -678,7 +679,7 @@ public class DeviceDetailFragment extends android.support.v4.app.Fragment implem
             out.close();
             inputStream.close();
         } catch (IOException e) {
-            Log.d(WiFiDirectActivity.TAG, e.toString());
+            Log.d(WifiDirectFragment.TAG, e.toString());
             return false;
         }
         return true;
@@ -726,7 +727,7 @@ public class DeviceDetailFragment extends android.support.v4.app.Fragment implem
             out.close();
             inputStream.close();
         } catch (IOException e) {
-            Log.d(WiFiDirectActivity.TAG, e.toString());
+            Log.d(WifiDirectFragment.TAG, e.toString());
             return false;
         }
         return true;

@@ -29,7 +29,6 @@ public class WiFiClientIPTransferService extends IntentService {
     }
 
     Handler mHandler;
-
     /*
      * (non-Javadoc)
      * @see android.app.IntentService#onHandleIntent(android.content.Intent)
@@ -46,11 +45,10 @@ public class WiFiClientIPTransferService extends IntentService {
             int port = intent.getExtras().getInt(FileTransferService.EXTRAS_GROUP_OWNER_PORT);
 
             try {
-
-                Log.d(WiFiDirectActivity.TAG, "Opening client socket for First tiime- ");
+                Log.d(WifiDirectFragment.TAG, "Opening client socket for First tiime- ");
                 socket.bind(null);
                 socket.connect((new InetSocketAddress(host, port)), FileTransferService.SOCKET_TIMEOUT);
-                Log.d(WiFiDirectActivity.TAG, "Client socket - " + socket.isConnected());
+                Log.d(WifiDirectFragment.TAG, "Client socket - " + socket.isConnected());
                 OutputStream stream = socket.getOutputStream();
                 ContentResolver cr = context.getContentResolver();
                 InputStream is = null;
@@ -66,7 +64,7 @@ public class WiFiClientIPTransferService extends IntentService {
 
                 oos.close();    //close the ObjectOutputStream after sending data.
             } catch (IOException e) {
-                Log.e(WiFiDirectActivity.TAG, e.getMessage());
+                Log.e(WifiDirectFragment.TAG, e.getMessage());
                 e.printStackTrace();
             } finally {
                 if (socket != null) {

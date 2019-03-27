@@ -8,31 +8,21 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/toolbar" />
-
-        <LinearLayout
-            android:id="@+id/linearLayout1"
+        <fragment
+            android:id="@+id/frag_list"
+            class="example.wifidirect.wifi.DeviceListFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
+            <!-- Preview: layout=@layout/row_devices -->
+        </fragment>
 
-            <fragment
-                android:id="@+id/frag_list"
-                class="example.wifidirect.wifi.DeviceListFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <!-- Preview: layout=@layout/row_devices -->
-            </fragment>
-
-            <fragment
-                android:id="@+id/frag_detail"
-                class="example.wifidirect.wifi.DeviceDetailFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <!-- Preview: layout=@layout/device_detail -->
-            </fragment>
-        </LinearLayout>
+        <fragment
+            android:id="@+id/frag_detail"
+            class="example.wifidirect.wifi.DeviceDetailFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- Preview: layout=@layout/device_detail -->
+        </fragment>
     </LinearLayout>
 
 </RelativeLayout>
