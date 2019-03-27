@@ -30,15 +30,15 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import example.wifidirect.R;
-import example.wifidirect.GlobalActivity;
-
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.TimeZone;
+
+import example.wifidirect.GlobalActivity;
+import example.wifidirect.R;
 
 /**
  * Created by anuj.sharma on 1/12/2017.
@@ -47,8 +47,8 @@ import java.util.TimeZone;
 public class Utils {
     private static Utils ourInstance = new Utils();
     /*
-    *  -----------  Font Style Code
-    * */
+     *  -----------  Font Style Code
+     * */
     private Typeface font_light, font_regular, font_bold, font_medium; // Typeface for set Font Style
     //    ----------- Set Font Cal
 //    Calligrapher calligrapher;

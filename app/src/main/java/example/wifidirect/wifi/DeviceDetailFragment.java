@@ -40,9 +40,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
 import com.kbeanie.multipicker.api.FilePicker;
 import com.kbeanie.multipicker.api.Picker;
 import com.kbeanie.multipicker.api.callbacks.FilePickerCallback;
@@ -73,8 +70,6 @@ import static example.wifidirect.utils.PermissionsAndroid.WRITE_EXTERNAL_STORAGE
  * i.e. setting up network connection and transferring data.
  */
 public class DeviceDetailFragment extends android.support.v4.app.Fragment implements ConnectionInfoListener, FilePickerCallback {
-
-    static InterstitialAd mInterstitialAd;
 
     protected static final int CHOOSE_FILE_RESULT_CODE = 20;
     private View mContentView = null;
@@ -114,17 +109,6 @@ public class DeviceDetailFragment extends android.support.v4.app.Fragment implem
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         mContentView = inflater.inflate(R.layout.device_detail, null);
-
-        mInterstitialAd = new InterstitialAd(getActivity());
-        mInterstitialAd.setAdUnitId(getString(R.string.fullscreen_ad_unit_id));
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                requestNewInterstitial();
-            }
-        });
-
-        requestNewInterstitial();
 
         mContentView.findViewById(R.id.btn_connect).setOnClickListener(new View.OnClickListener() {
 
@@ -167,13 +151,6 @@ public class DeviceDetailFragment extends android.support.v4.app.Fragment implem
                 });
 
         return mContentView;
-    }
-
-    private void requestNewInterstitial() {
-        AdRequest adRequest = new AdRequest.Builder()
-                .build();
-
-        mInterstitialAd.loadAd(adRequest);
     }
 
     private void checkExternalStoragePermission() {
@@ -261,9 +238,9 @@ public class DeviceDetailFragment extends android.support.v4.app.Fragment implem
             }
 
             if (info.groupFormed && info.isGroupOwner) {
-            /*
-             * set shaerdprefrence which remember that device is server.
-        	 */
+                /*
+                 * set shaerdprefrence which remember that device is server.
+                 */
                 SharedPreferencesHandler.setStringValues(getActivity(),
                         getString(R.string.pref_ServerBoolean), "true");
 
@@ -379,9 +356,9 @@ public class DeviceDetailFragment extends android.support.v4.app.Fragment implem
         Intent serviceIntent = new Intent(getActivity(), FileTransferService.class);
         serviceIntent.setAction(FileTransferService.ACTION_SEND_FILE);
         serviceIntent.putExtra(FileTransferService.EXTRAS_FILE_PATH, file.getQueryUri());
-                /*
-                 * Choose on which device file has to send weather its server or client
-    	         */
+        /*
+         * Choose on which device file has to send weather its server or client
+         */
         String Ip = SharedPreferencesHandler.getStringValues(
                 getActivity(), getString(R.string.pref_WiFiClientIp));
         String OwnerIp = SharedPreferencesHandler.getStringValues(
@@ -535,9 +512,9 @@ public class DeviceDetailFragment extends android.support.v4.app.Fragment implem
                         dirs.mkdirs();
                     f.createNewFile();
 
-				/*
-                 * Recieve file length and copy after it
-				 */
+                    /*
+                     * Recieve file length and copy after it
+                     */
                     this.ReceivedFileLength = obj.getFileLength();
 
                     InputStream inputstream = client.getInputStream();
@@ -549,9 +526,9 @@ public class DeviceDetailFragment extends android.support.v4.app.Fragment implem
                     // file to storage.
                     serverSocket.close();
 
-				/*
-                 * Set file related data and decrypt file in postExecute.
-				 */
+                    /*
+                     * Set file related data and decrypt file in postExecute.
+                     */
                     this.Extension = obj.getFileName();
                     this.EncryptedFile = f;
                     return f.getAbsolutePath();
@@ -578,15 +555,12 @@ public class DeviceDetailFragment extends android.support.v4.app.Fragment implem
         protected void onPostExecute(String result) {
             if (result != null) {
                 if (!result.equalsIgnoreCase("Demo")) {
-                    if (mInterstitialAd.isLoaded()) {
-                        mInterstitialAd.show();
-                    }
                     openFile(result, mFilecontext);
                 } else if (!TextUtils.isEmpty(result)) {
                     /*
                      * To initiate socket again we are intiating async task
-					 * in this condition.
-					 */
+                     * in this condition.
+                     */
                     FileServerAsyncTask FileServerobj = new
                             FileServerAsyncTask(mFilecontext, FileTransferService.PORT);
                     if (FileServerobj != null) {
@@ -623,7 +597,7 @@ public class DeviceDetailFragment extends android.support.v4.app.Fragment implem
                     example.wifidirect.BuildConfig.APPLICATION_ID + ".provider",
                     new File(stringUrl));
             uri = fileURI;
-        }else{
+        } else {
             uri = Uri.parse("file://" + uri.getPath());
         }
         if (stringUrl.toString().contains(".doc") || stringUrl.toString().contains(".docx")) {
