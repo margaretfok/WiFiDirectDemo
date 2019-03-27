@@ -285,7 +285,7 @@ public class DeviceDetailFragment extends android.support.v4.app.Fragment implem
 
             }
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
     }
 
@@ -542,7 +542,7 @@ public class DeviceDetailFragment extends android.support.v4.app.Fragment implem
 
                 return "";
             } catch (IOException e) {
-                Log.e(WiFiDirectActivity.TAG, e.getMessage());
+                e.printStackTrace();
                 return null;
             }
         }
